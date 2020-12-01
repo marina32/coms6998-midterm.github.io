@@ -4,7 +4,7 @@
 This blog shows what I've learnt from the two papers about deep learning in option pricing.
 
 # Motivation
-
+[Week 3](src='Week 3.jpg')
 Option is an important financial derivatives which
 For optimal stopping problem
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
