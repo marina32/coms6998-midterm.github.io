@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+# COMS 6998 Mid-term Seminar Blog
 
 You can use the [editor on GitHub](https://github.com/marina32/coms6998-midterm.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
@@ -23,7 +23,11 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+
+Reference:
+1.[Deep learning for ranking response surfaces with applications to optimal stopping problems](https://www-tandfonline-com.ezproxy.cul.columbia.edu/doi/full/10.1080/14697688.2020.1741669)
+2.[Supervised Deep Neural Networks (DNNs) for Pricing/Calibration of Vanilla/Exotic Options Under Various Different Processes](https://arxiv.org/abs/1902.05810)
+and ![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
