@@ -4,7 +4,7 @@
 This blog shows what I've learnt from the two papers about deep learning in option pricing.
 
 # Motivation
-![happy]('/Week 3.jpg')
+![Week 3](https://user-images.githubusercontent.com/55861244/100691703-3fc55380-3357-11eb-8e47-b2b55c2f445c.jpg)
 Option is an important financial derivatives which
 
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
