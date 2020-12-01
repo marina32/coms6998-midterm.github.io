@@ -37,6 +37,7 @@ Since we want to estimate C(x) using eep learning algorithms we evaluate the dif
 where the lambda(dx) is a probability measure on X specifying the relative importance of ranking different regions. Here when we evaluate the training accuracy and the generalization accuracy, the loss metric is using the uniform measure ![image](https://user-images.githubusercontent.com/55861244/100694560-55d61280-335d-11eb-9496-566bab3ef05e.png).
 
 ## 1.2 Neural Networks and Deep Learning Algorithms
+### Input and Output
 The input for the the neural networks is 
 ![image](https://user-images.githubusercontent.com/55861244/100694596-671f1f00-335d-11eb-8292-b4ae6391b391.png)
 where J corresponds to the number of points and d is the dimensionality of the problem. And the output should take the form:
@@ -44,10 +45,12 @@ where J corresponds to the number of points and d is the dimensionality of the p
 ![image](https://user-images.githubusercontent.com/55861244/100692685-579dd700-3359-11eb-98ad-4cfb4c4c0066.png)
 
 where L is the number of response surfaces, and pjl is the probability that the l th surface is the minimal at the j th point.
+### Architecture
 The author uses two types of neural networks which is feed-forward NNs and UNet:
 
 ![image](https://user-images.githubusercontent.com/55861244/100692967-edd1fd00-3359-11eb-8f5f-c35d5d5a8d05.png)
 
+### Optimizer and Activation Function
 For the optimizer, the author uses the commonly used stochastic gradient descent method. For activation function, the author used ReLu, sigmoid and softmax function.
 
 ## 1.3 Numerical Experiments
@@ -94,24 +97,73 @@ In this example, the author use L=3 surfaces and X=[-1,1]^d with d=10. The surfa
 
 # Paper 2: Deep Learning in Pricing/Calibration of Vanilla/Exotic Options
 ## 2.1 Introduction
+The authors apply supervised deep neural networks (DNNs) for pricing and calibration of both vanilla and exotic options under both diffusion and pure jump processes with and without stochastic volatility. 
+The author consider four different process:
+1. Geometric Brownian motion (GBM) 
+2. GBM + stochastic arrival (GBMSA) a.k.a Heston stochastic volatility model
+3. Variance gamma (VG) model
+4. VG + stochastic arrival （VGSA)
+
 
 ## 2.2 Neural Networks and Deep Learning Algorithms
+### 2.2.1 Input and Output
+For the input of the network, they use the parameter matrix
+
+![image](https://user-images.githubusercontent.com/55861244/100696806-66d55280-3362-11eb-8388-0aab654bbb96.png)
+
+where all the parameters has the range according to the reality:
+- Product and market parameters:
+
+![image](https://user-images.githubusercontent.com/55861244/100697283-98025280-3363-11eb-9073-57927e66a4b6.png)
+
+- Parameters for different model:
+
+![image](https://user-images.githubusercontent.com/55861244/100696856-85d3e480-3362-11eb-8076-66623bce6c26.png)
+
+- **For European Options**, the output y=EC/K, and EC gained using Black-Merton-Scholes formula for GBM process, while EC is obtained by using the Fast Fourier Transform(FFT) algorithm for corresponding input parameter matrices X for VG, GBMSA, VGSA models.
+- **For Barrier Options**, since we have put-call parity and relationships between barrier options, the author only consider the Up-and-Out Put Options (UOP). The output is y=UOP/K. UOP is obtained by using the closed form solution for GBM while it is obtained by using Monte Carlo procedure for their corresponding input parameter matrices X for other models.
+- **For American Options**, y=AJZ/K where AJZ is obtained by using the Ju-Zhong Approximation.
+
+### 2.2.2 Architecture
+They used feed-forward Neural Networks and Convolutional Neural Networks.
+After experiments, they choose 120 neurons per layer and 4 layers, which provides lowest RMSE in their experiments.
+
+### 2.2.3 Optimizer and Activation Function
+For the optimizer, they first try SGD but suffered from the slow training time and after trying RMSprop and Adam, they finally choose Adam as the optimizer. In their Neural Networks, they use MSE as loss function. After their numerical experiments, they found that the activation of 4 layers with first 3 leaky and last one elu gained the best performance.
 
 ## 2.3 Numerical Experiments
+### 2.3.1 Validation
+In order to validate the model, they check trained model for three cases:
+**1. Interpolation(IS):** In this case, they just validate it for interpolated points on our testing set.
+**2. Deep-out-of-the-money(DOM):** In this case, they keep everything else fixed, and test how the trained models behave when S0/K is between 0.6 and 0.8.
+**3. Longer maturity(LM):**  In this case, they keep everything else fixed, and test how the trained models behave when the maturity is between 3 years and 5 years.
+And obtained the below results:
+- **For European Options:**
+
+![image](https://user-images.githubusercontent.com/55861244/100698007-6d18fe00-3365-11eb-80c5-33c71667c5f5.png)
+
+- **For Barrier Options:**
+
+![image](https://user-images.githubusercontent.com/55861244/100698082-a05b8d00-3365-11eb-922a-0c00e9736560.png)
+
+- **For American Options:**
+
+
+
+### 2.3.2 FFNNs VS RNNs
+- Although feedforward neural network(FFNN) perform well but it is quite expensive to generate labels for American options. Knowing American options are strongly path-dependent options, we might benefit from recurrent neural networks(RNN) in pricing them. 
+- According to the numerical results, the MSE value of FFNN model is slightly smaller than that of the RNN model. 
+- On the other hand, there is a big gap between training times of the two models. In our experiment training FFNNs took 50% more time than RNNs. 
 
 ## 2.4 Observations and Insights
 - Find out that RNNs perform pretty well and also provide a cheap and faster method than FFNNs to price American option. The model can be used for derivative pricing for market parameters both within and reasonably outside the initial range of the training set with very low error.
 - Provide a way to not only price the European options and American options, but also the more complicate Barrier options. The model perform well under in-sample test data as well as longer maturity extrapolation data.
 
 
-```markdown
-
-**Bold** and _Italic_ and `Code` text
-```
-
-
 # Conclusion
-
+**For the paper 1**, we learn that deep learning algorithms can be used for ranking response surfaces problems and finding optimal stopping problems, especially for high-dimensional problems. In this application, deep learning algorithms is insensitive to input which unifrom grids perfroms well enough and doesn’t need special design for the input generating. What's more, it can auto-detect the noisy input.
+**For the paper 2**, we learn that deep learning provides a way to pricing and calibration of both vanilla and exotic options under both diffusion and pure jump processes with and without stochastic volatility. For American option pricing, RNNs provides a much faster and similar precise way than FFNNs.
+**It is worth mentioning that** there are some recent papers provide the hardware and training time they used but not all papers did so. The two paper we used just mention the training time without providing their hardware information. We hope that in the future they would provide more detail information to make it easier for us to repeat their experiments.
 
 # Reference:
 1.[Deep learning for ranking response surfaces with applications to optimal stopping problems](https://www-tandfonline-com.ezproxy.cul.columbia.edu/doi/full/10.1080/14697688.2020.1741669)
