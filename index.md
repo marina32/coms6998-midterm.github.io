@@ -6,6 +6,7 @@ This blog shows what I've learnt from the two papers about deep learning in opti
 # Motivation
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
 Lots of research try to use different input design and analyse approximation methods to solve it while the deep learning offers not only an approximation of an optimal strategy but also the optimal expected payoff associated to the considered optimal stopping problem. 
+
 Also, pricing and calibration of different types of options can be expensive and time demanding while every seconds means money in the market. Therefore, using deep learning algorithms to provide an inexpensive computationally way to training and predicting options prices is an natural idea. The neural networks architecture results in speed-ups of many orders of magnitude, making it practical and easy to implement and use.
 
 # Background
@@ -36,7 +37,7 @@ Since we want to estimate C(x) using eep learning algorithms we evaluate the dif
 where the lambda(dx) is a probability measure on X specifying the relative importance of ranking different regions. Here when we evaluate the training accuracy and the generalization accuracy, the loss metric is using the uniform measure ![image](https://user-images.githubusercontent.com/55861244/100694560-55d61280-335d-11eb-9496-566bab3ef05e.png).
 
 ## 1.2 Neural Networks and Deep Learning Algorithms
-### Input and Output
+### 1.2.1 Input and Output
 The input for the the neural networks is 
 ![image](https://user-images.githubusercontent.com/55861244/100694596-671f1f00-335d-11eb-8292-b4ae6391b391.png)
 where J corresponds to the number of points and d is the dimensionality of the problem. And the output should take the form:
@@ -44,12 +45,12 @@ where J corresponds to the number of points and d is the dimensionality of the p
 ![image](https://user-images.githubusercontent.com/55861244/100692685-579dd700-3359-11eb-98ad-4cfb4c4c0066.png)
 
 where L is the number of response surfaces, and pjl is the probability that the l th surface is the minimal at the j th point.
-### Architecture
+### 1.2.2 Architecture
 The author uses two types of neural networks which is feed-forward NNs and UNet:
 
 ![image](https://user-images.githubusercontent.com/55861244/100692967-edd1fd00-3359-11eb-8f5f-c35d5d5a8d05.png)
 
-### Optimizer and Activation Function
+### 1.2.3 Optimizer and Activation Function
 For the optimizer, the author uses the commonly used stochastic gradient descent method. For activation function, the author used ReLu, sigmoid and softmax function.
 
 ## 1.3 Numerical Experiments
