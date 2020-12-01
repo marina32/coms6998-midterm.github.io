@@ -1,11 +1,11 @@
 # COMS 6998 Mid-term Seminar Blog
-# Option Pricing and Optimal Stopping
+# Deep Learning in Option Pricing and Optimal Stopping Problem
 
 This blog shows what I've learnt from the two papers about deep learning in option pricing.
 
 # Motivation
 Option is an important financial derivatives which
-For optimal stopping problem
+
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
 Lots of research try to use different input design and analyse approximation methods to solve it while the deep learning offers not only an approximation of an optimal strategy but also the optimal expected payoff associated to the considered optimal stopping problem. 
 
@@ -14,15 +14,18 @@ Lots of research try to use different input design and analyse approximation met
 - The previous work is trying to use delicate input to better calculate the optimal stopping while the deep learning algorithm is insensitive to the input. The uniform sampling is more preferable.
 - Avoid the problem of unaffordable computing time for high-dimensional problem
 - Detection of wrong inputs with noise
+
 **2. For pricing/calibration of options:**
 - Besides geometric Brownian motion(GBM), variance gamma(VG) model is also commonly use in option pricing so the author want to explore the potential of combine those two.
 - Other than the simple European options and American options, Barrier options are more complicated with several more condition to execute and the author also consider about pricing those type of option.
 
 # Paper 1: Deep Learning in Optimal Stopping
 ## 1.1 Introduction
-```markdown
 The paper is mainly about using deep learning algorithms for ranking response surfaces with applications to optimal stopping problems. The surface ranking problem consists in assigning the index of the minimal surface to every input $x$ in the entire (usually continuous) space $\mathcal{X}$, i.e. finding the classifer
-$\mathcal{C(x)}:=\underset{l}{argmin}\{\mu_l(x)\}\in\mathfrak{L}$
+```markdown
+$$
+\mathcal{C(x)}:=\underset{l}{argmin}\{\mu_l(x)\}\in\mathfrak{L}
+$$
 ```
 ## 1.2 Neural Networks and Deep Learning Algorithms
 
