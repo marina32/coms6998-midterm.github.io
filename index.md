@@ -1,4 +1,4 @@
-# COMS 6998 Mid-term Seminar Blog
+## COMS 6998 Mid-term Seminar Blog
 # Deep Learning in Option Pricing and Optimal Stopping Problem
 
 This blog shows what I've learnt from the two papers about deep learning in option pricing.
@@ -71,6 +71,7 @@ The above results show that:
 2. The points generating by sequential design contain more errors since they are more concentrated around the true boundaries and fake boundary. This leads to a large number of mis-labeled points and brings lower signal-to-noise ratio.
 3. There exists a threshold on the proportion of error in training data so that they can be auto-detect and will not influence the network's predicting accuracy.
 After this example, they believes that it is better to use training data generating by uniform grids and there is no need to do the sequential design for deep learning input.
+
 ### 1.3.2 Two-dimensional example
 The two-dimensional example is aim to study the sensitivity of deep learning algorithms to noisy labels, sampling locations and budget. So the author train the network for a more complex setting with L=5 surfaces and a 2D input space X=\[-2,2\]^2.
 The surface, response and training accuracy is showed below:
@@ -83,7 +84,7 @@ In this example, they implement the UNet architecture using M=576 uniform grid p
 
 ### 1.3.3 Ten-dimensional example
 The main purpose of this example is to show the robustness of deep learning algorithms. Non-learning algorithms have difficulty in computational time for high dimension. For those example, when NN is trained by clean data without noise, the train accuracy is better while if it is trained by noisy data, the generalization accuracy is better.
-In this example 
+In this example, the author use L=3 surfaces and X=[-1,1]^d with d=10. The surfaces they use include embedded Harmann 6-D function, rescaled  
 
 ## 1.4 Bermudan Option Pricing
 
