@@ -4,8 +4,6 @@
 This blog shows what I've learnt from the two papers about deep learning in option pricing.
 
 # Motivation
-Option is an important financial derivatives which
-
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
 Lots of research try to use different input design and analyse approximation methods to solve it while the deep learning offers not only an approximation of an optimal strategy but also the optimal expected payoff associated to the considered optimal stopping problem. 
 
@@ -135,9 +133,9 @@ For the optimizer, they first try SGD but suffered from the slow training time a
 ## 2.3 Numerical Experiments
 ### 2.3.1 Validation
 In order to validate the model, they check trained model for three cases:
-**1. Interpolation(IS):** In this case, they just validate it for interpolated points on our testing set.
-**2. Deep-out-of-the-money(DOM):** In this case, they keep everything else fixed, and test how the trained models behave when S0/K is between 0.6 and 0.8.
-**3. Longer maturity(LM):**  In this case, they keep everything else fixed, and test how the trained models behave when the maturity is between 3 years and 5 years.
+1. **Interpolation(IS):** In this case, they just validate it for interpolated points on our testing set.
+2. **Deep-out-of-the-money(DOM):** In this case, they keep everything else fixed, and test how the trained models behave when S0/K is between 0.6 and 0.8.
+3. **Longer maturity(LM):**  In this case, they keep everything else fixed, and test how the trained models behave when the maturity is between 3 years and 5 years.
 And obtained the below results:
 - **For European Options:**
 
