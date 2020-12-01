@@ -4,7 +4,6 @@
 This blog shows what I've learnt from the two papers about deep learning in option pricing.
 
 # Motivation
-![Week 3]<src='Week 3.jpg'>
 Option is an important financial derivatives which
 For optimal stopping problem
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
@@ -21,21 +20,31 @@ Lots of research try to use different input design and analyse approximation met
 
 # Paper 1: Deep Learning in Optimal Stopping
 ## 1.1 Introduction
-
+The paper is mainly about using deep learning algorithms for ranking response surfaces with applications to optimal stopping problems. The surface ranking problem consists in assigning the index of the minimal surface to every input $x$ in the entire (usually continuous) space $\mathcal{X}$, i.e. finding the classifer
+$\mathcal{C(x)}:=\underset{l}{argmin}\{\mu_l(x)\}\in\mathfrak{L}$
 ## 1.2 Neural Networks and Deep Learning Algorithms
 
 ## 1.3 Numerical Experiments
 
-## 1.4 Observations and Insights
+
+## 1.4 Bermudan Option Pricing
+
+## 1.5 Observations and Insights
 - Deep learning method perform quite well with uniform inputs which seems no need to design a special method to generate input and it can also auto-detect the noisy part although it still perform better for the clean data.
 - Provide a solution for high-dimensional problem within affordable computing time 
 
 
 # Paper 2: Deep Learning in Pricing/Calibration of Vanilla/Exotic Options
 ## 2.1 Introduction
+
 ## 2.2 Neural Networks and Deep Learning Algorithms
+
 ## 2.3 Numerical Experiments
+
 ## 2.4 Observations and Insights
+- Find out that RNNs perform pretty well and also provide a cheap and faster method than FFNNs to price American option. The model can be used for derivative pricing for market parameters both within and reasonably outside the initial range of the training set with very low error.
+- Provide a way to not only price the European options and American options, but also the more complicate Barrier options. The model perform well under in-sample test data as well as longer maturity extrapolation data.
+
 
 ```markdown
 Syntax highlighted code block
