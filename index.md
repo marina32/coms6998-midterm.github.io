@@ -6,12 +6,13 @@ This blog shows what I've learnt from the two papers about deep learning in opti
 # Motivation
 High-dimensional optimal stopping problems are notoriously difficult to solve due to the well-known curse of dimensionality. The input data is often high dimension since there might be multiple underlying assets in a hedging portfolio so that almost all of them do not have calculation methods to gain a explicit answer. 
 Lots of research try to use different input design and analyse approximation methods to solve it while the deep learning offers not only an approximation of an optimal strategy but also the optimal expected payoff associated to the considered optimal stopping problem. 
+Also, pricing and calibration of different types of options can be expensive and time demanding while every seconds means money in the market. Therefore, using deep learning algorithms to provide an inexpensive computationally way to training and predicting options prices is an natural idea. The neural networks architecture results in speed-ups of many orders of magnitude, making it practical and easy to implement and use.
 
 # Background
 **1. For optimal stopping problem:** 
 - The previous work is trying to use delicate input to better calculate the optimal stopping while the deep learning algorithm is insensitive to the input. The uniform sampling is more preferable.
-- Avoid the problem of unaffordable computing time for high-dimensional problem
-- Detection of wrong inputs with noise
+- The researcher wants to avoid the problem of unaffordable computing time for high-dimensional problem.
+- The researcher wants methods can auto-detect wrong inputs with noise.
 
 **2. For pricing/calibration of options:**
 - Besides geometric Brownian motion(GBM), variance gamma(VG) model is also commonly use in option pricing so the author want to explore the potential of combine those two.
