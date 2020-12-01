@@ -85,7 +85,13 @@ In this example, they implement the UNet architecture using M=576 uniform grid p
 
 ### 1.3.3 Ten-dimensional example
 The main purpose of this example is to show the robustness of deep learning algorithms. Non-learning algorithms have difficulty in computational time for high dimension. For those example, when NN is trained by clean data without noise, the train accuracy is better while if it is trained by noisy data, the generalization accuracy is better.
-In this example, the author use L=3 surfaces and X=[-1,1]^d with d=10. The surfaces they use include embedded Harmann 6-D function, rescaled  
+In this example, the author use L=3 surfaces and X=[-1,1]^d with d=10. The surfaces they use include embedded Harmann 6-D function, rescaled Styblinski-Tang function, and rescaled Trid function as described in below table:
+
+![image](https://user-images.githubusercontent.com/55861244/100699253-70fa4f80-3368-11eb-9e25-5e2239cd1fbe.png)
+
+and gain the below training accuracy:
+
+![image](https://user-images.githubusercontent.com/55861244/100699268-7f486b80-3368-11eb-8b95-38ffa3fc780d.png)
 
 ## 1.4 Bermudan Option Pricing
 
@@ -136,6 +142,7 @@ In order to validate the model, they check trained model for three cases:
 1. **Interpolation(IS):** In this case, they just validate it for interpolated points on our testing set.
 2. **Deep-out-of-the-money(DOM):** In this case, they keep everything else fixed, and test how the trained models behave when S0/K is between 0.6 and 0.8.
 3. **Longer maturity(LM):**  In this case, they keep everything else fixed, and test how the trained models behave when the maturity is between 3 years and 5 years.
+
 And obtained the below results:
 - **For European Options:**
 
