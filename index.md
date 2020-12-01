@@ -107,6 +107,7 @@ The author consider four different process:
 
 ## 2.2 Neural Networks and Deep Learning Algorithms
 ### 2.2.1 Input and Output
+They used sample sizes of 300,000 points for training and 60,000 points for validation.
 For the input of the network, they use the parameter matrix
 
 ![image](https://user-images.githubusercontent.com/55861244/100696806-66d55280-3362-11eb-8388-0aab654bbb96.png)
@@ -148,7 +149,9 @@ And obtained the below results:
 
 - **For American Options:**
 
+![image](https://user-images.githubusercontent.com/55861244/100698692-144a6500-3367-11eb-8f1e-f8afbd748bd8.png)
 
+They observed that with an increase in depth in layers and neurons per layer the accuracy of the predictions increases, but eventually diminishes. Once the training is done, the model can be used for derivative pricing for market parameters both within and reasonably outside the initial range of the training set with very low error.
 
 ### 2.3.2 FFNNs VS RNNs
 - Although feedforward neural network(FFNN) perform well but it is quite expensive to generate labels for American options. Knowing American options are strongly path-dependent options, we might benefit from recurrent neural networks(RNN) in pricing them. 
@@ -161,9 +164,9 @@ And obtained the below results:
 
 
 # Conclusion
-**For the paper 1**, we learn that deep learning algorithms can be used for ranking response surfaces problems and finding optimal stopping problems, especially for high-dimensional problems. In this application, deep learning algorithms is insensitive to input which unifrom grids perfroms well enough and doesn’t need special design for the input generating. What's more, it can auto-detect the noisy input.
-**For the paper 2**, we learn that deep learning provides a way to pricing and calibration of both vanilla and exotic options under both diffusion and pure jump processes with and without stochastic volatility. For American option pricing, RNNs provides a much faster and similar precise way than FFNNs.
-**It is worth mentioning that** there are some recent papers provide the hardware and training time they used but not all papers did so. The two paper we used just mention the training time without providing their hardware information. We hope that in the future they would provide more detail information to make it easier for us to repeat their experiments.
+- **For the paper 1**, we learn that deep learning algorithms can be used for ranking response surfaces problems and finding optimal stopping problems, especially for high-dimensional problems. In this application, deep learning algorithms is insensitive to input which unifrom grids perfroms well enough and doesn’t need special design for the input generating. What's more, it can auto-detect the noisy input.
+- **For the paper 2**, we learn that deep learning provides a way to pricing and calibration of both vanilla and exotic options under both diffusion and pure jump processes with and without stochastic volatility. For American option pricing, RNNs provides a much faster and similar precise way than FFNNs.
+- **It is worth mentioning that** there are some recent papers provide the hardware and training time they used but not all papers did so. The two paper we used just mention the training time without providing their hardware information. We hope that in the future they would provide more detail information to make it easier for us to repeat their experiments.
 
 # Reference:
 1.[Deep learning for ranking response surfaces with applications to optimal stopping problems](https://www-tandfonline-com.ezproxy.cul.columbia.edu/doi/full/10.1080/14697688.2020.1741669)
