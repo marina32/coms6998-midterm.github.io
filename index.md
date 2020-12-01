@@ -20,8 +20,10 @@ Lots of research try to use different input design and analyse approximation met
 
 # Paper 1: Deep Learning in Optimal Stopping
 ## 1.1 Introduction
+```markdown
 The paper is mainly about using deep learning algorithms for ranking response surfaces with applications to optimal stopping problems. The surface ranking problem consists in assigning the index of the minimal surface to every input $x$ in the entire (usually continuous) space $\mathcal{X}$, i.e. finding the classifer
 $\mathcal{C(x)}:=\underset{l}{argmin}\{\mu_l(x)\}\in\mathfrak{L}$
+```
 ## 1.2 Neural Networks and Deep Learning Algorithms
 
 ## 1.3 Numerical Experiments
