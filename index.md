@@ -95,6 +95,17 @@ and gain the below training accuracy:
 ![image](https://user-images.githubusercontent.com/55861244/100699268-7f486b80-3368-11eb-8b95-38ffa3fc780d.png)
 
 ## 1.4 Bermudan Option Pricing
+The author then use the below algorithm to pricing Bermudan Option:
+
+![image](https://user-images.githubusercontent.com/55861244/100699708-b3705c00-3369-11eb-8bd9-1ede2b884f12.png)
+
+They use the below parameters from the previous research as below:
+
+![image](https://user-images.githubusercontent.com/55861244/100699855-0fd37b80-336a-11eb-95a0-2f166abc66b3.png)
+
+And find out that not only the algorithms provide an result for high-dimensional problem within an affordable time, but also once it is done, if the new dataset is not drastically different form the original dataset (which is very likely), the pre-trained network will already learn some features that are relevant to the current calssification problem and only fine-tuning is needed.
+
+![image](https://user-images.githubusercontent.com/55861244/100700058-8e301d80-336a-11eb-95e2-e1c1a3c46c01.png)
 
 ## 1.5 Observations and Insights
 - Deep learning method perform quite well with uniform inputs which seems no need to design a special method to generate input and it can also auto-detect the noisy part although it still perform better for the clean data.
