@@ -21,9 +21,14 @@ Lots of research try to use different input design and analyse approximation met
 
 # Paper 1: Deep Learning in Optimal Stopping
 ## 1.1 Introduction
+
 ## 1.2 Neural Networks and Deep Learning Algorithms
+
 ## 1.3 Numerical Experiments
+
 ## 1.4 Observations and Insights
+- Deep learning method perform quite well with uniform inputs which seems no need to design a special method to generate input and it can also auto-detect the noisy part although it still perform better for the clean data.
+- Provide a solution for high-dimensional problem within affordable computing time 
 
 
 # Paper 2: Deep Learning in Pricing/Calibration of Vanilla/Exotic Options
